@@ -1,7 +1,17 @@
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { UserState, decrement, increment } from "@/redux/slide/user.slide";
 import React from "react";
 
-function index() {
-  return <div>hello</div>;
+function Index() {
+  const { value } = useAppSelector((state: { userSlice: UserState }) => state.userSlice);
+  const dispatch = useAppDispatch();
+  return (
+    <div>
+      <button onClick={() => dispatch(increment())}>add</button>
+      <div>{value}</div>
+      <button onClick={() => dispatch(decrement())}>minus</button>
+    </div>
+  );
 }
 
-export default index;
+export default Index;
