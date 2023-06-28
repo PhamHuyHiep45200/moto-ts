@@ -1,6 +1,27 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "max-len": ["error", {"code": 80, "ignoreUrls": true}]
+    "max-len": ["error", {"code": 200, "ignoreUrls": true}],
+    "curly": ["error", "all"],
+    "lines-around-comment": [
+      "error",
+      {
+        "beforeBlockComment": true,
+        "afterBlockComment": true,
+        "beforeLineComment": true,
+        "afterLineComment": true,
+        "allowBlockStart": true,
+        "allowBlockEnd": true,
+        "allowObjectStart": true,
+        "allowObjectEnd": true,
+        "allowArrayStart": true,
+        "allowArrayEnd": true
+      }
+    ],
+    "no-confusing-arrow": ["error", { "allowParens": false }],
+    "no-mixed-operators": "error",
+    "no-tabs": ["error", {"allowIndentationTabs": true}],
+    "no-console": "error",
+    "max-lines": ["error", 250]
   }
 }
