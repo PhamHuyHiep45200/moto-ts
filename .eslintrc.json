@@ -1,11 +1,28 @@
 {
-  "extends": "next/core-web-vitals",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "next/core-web-vitals"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
   "rules": {
-    "max-len": ["error", {"code": 200, "ignoreUrls": true}],
+    "max-len": ["error", { "code": 200, "ignoreUrls": true }],
     "curly": ["error", "all"],
     "no-confusing-arrow": ["error", { "allowParens": false }],
     "no-mixed-operators": "error",
-    "no-tabs": ["error", {"allowIndentationTabs": true}],
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
     "no-console": "error",
     "max-lines": ["error", 250]
   }
