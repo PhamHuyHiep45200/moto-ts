@@ -1,4 +1,4 @@
-import { emptySplitApi as api } from "./emptyApi";
+import { api } from "./emptyApi";
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
     orderControllerGetOrderAll: build.query<
@@ -56,14 +56,12 @@ export type CreateOrderDto = {
   rentalStartDate: string;
   numberDateRental: number;
   allMoney: number;
-  idCard: string;
   receivingAddress: string;
   statusOrder: string;
   idMoto: number;
   idUserReceiver: number;
 };
 export type UpdateOrderDto = {
-  idUser: number;
   statusOrder: string;
 };
 export const {

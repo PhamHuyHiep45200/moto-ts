@@ -1,4 +1,4 @@
-import { emptySplitApi as api } from "./emptyApi";
+import { api } from "./emptyApi";
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
     userControllerGetAllUsers: build.query<
@@ -19,12 +19,6 @@ const injectedRtkApi = api.injectEndpoints({
         method: "POST",
         body: queryArg.createUserDto,
       }),
-    }),
-    userControllerGetAdmin: build.query<
-      UserControllerGetAdminApiResponse,
-      UserControllerGetAdminApiArg
-    >({
-      query: () => ({ url: `/user/admin` }),
     }),
     userControllerUpdateUser: build.mutation<
       UserControllerUpdateUserApiResponse,
@@ -80,12 +74,6 @@ const injectedRtkApi = api.injectEndpoints({
         body: queryArg.changePassWord,
       }),
     }),
-    chatControllerGetAllUserChat: build.query<
-      ChatControllerGetAllUserChatApiResponse,
-      ChatControllerGetAllUserChatApiArg
-    >({
-      query: () => ({ url: `/chat/user-chat` }),
-    }),
   }),
   overrideExisting: false,
 });
@@ -99,8 +87,6 @@ export type UserControllerCreateUserApiResponse = unknown;
 export type UserControllerCreateUserApiArg = {
   createUserDto: CreateUserDto;
 };
-export type UserControllerGetAdminApiResponse = unknown;
-export type UserControllerGetAdminApiArg = void;
 export type UserControllerUpdateUserApiResponse = unknown;
 export type UserControllerUpdateUserApiArg = {
   idUser: number;
@@ -127,8 +113,6 @@ export type UserControllerChangePassWordApiArg = {
   id: number;
   changePassWord: ChangePassWord;
 };
-export type ChatControllerGetAllUserChatApiResponse = unknown;
-export type ChatControllerGetAllUserChatApiArg = void;
 export type CreateUserDto = {
   name: string;
   phone: string;
@@ -155,12 +139,10 @@ export type ChangePassWord = {
 export const {
   useUserControllerGetAllUsersQuery,
   useUserControllerCreateUserMutation,
-  useUserControllerGetAdminQuery,
   useUserControllerUpdateUserMutation,
   useUserControllerDeleteUserMutation,
   useUserControllerUnDeleteUserMutation,
   useUserControllerUserLoginMutation,
   useUserControllerGetUserByIdQuery,
   useUserControllerChangePassWordMutation,
-  useChatControllerGetAllUserChatQuery,
 } = injectedRtkApi;

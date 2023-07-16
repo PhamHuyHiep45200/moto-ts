@@ -1,16 +1,7 @@
-import { emptySplitApi as api } from "./emptyApi";
+import { api } from "./emptyApi";
 const injectedRtkApi = api.injectEndpoints({
-  endpoints: (build) => ({
-    notifyControllerGetNotify: build.query<
-      NotifyControllerGetNotifyApiResponse,
-      NotifyControllerGetNotifyApiArg
-    >({
-      query: () => ({ url: `/notify` }),
-    }),
-  }),
+  endpoints: (build) => ({}),
   overrideExisting: false,
 });
 export { injectedRtkApi as motoApi };
-export type NotifyControllerGetNotifyApiResponse = unknown;
-export type NotifyControllerGetNotifyApiArg = void;
-export const { useNotifyControllerGetNotifyQuery } = injectedRtkApi;
+export const {} = injectedRtkApi;
